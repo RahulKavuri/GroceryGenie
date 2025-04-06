@@ -38,10 +38,10 @@ async function startServer() {
     await sequelize.sync({ alter: true });  
     console.log("✅ Database synced successfully!");
 
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`✅ Server running on http://192.168.29.37:${PORT}`);
-      console.log(`📘 Swagger docs at http://192.168.29.37:${PORT}/api-docs`);
+    app.listen(PORT, () => {
+      console.log(`✅ Server running on port ${PORT}`);
     });
+    
 
   } catch (error) {
     console.error("❌ Server startup failed:", error);
