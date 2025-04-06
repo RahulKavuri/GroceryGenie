@@ -10,7 +10,8 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:5000", // ✅ Correct base path
+        url: "https://grocerygenie-production.up.railway.app"
+
       },
     ],
     components: {
