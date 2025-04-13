@@ -3,12 +3,18 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
  // Make sure you're using bcrypt
 
-exports.loginUser = async (req, res) => {
+ exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   console.log("🟡 Incoming login request");
+  console.log("🟠 Raw body:", req.body);  // See exactly what Android sends
   console.log("Email:", email);
   console.log("Password:", password);
+
+  if (!email || !password) {
+    console.warn("⚠️ Missing email or password in request body");
+    return res.status(400).json({ success: false, message: "Missing credentials" });
+  }
 
   try {
     const user = await User.findOne({ where: { email } });
@@ -25,7 +31,6 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid password" });
     }
 
-    // Success
     return res.status(200).json({ success: true, message: "Login successful", user });
 
   } catch (err) {
@@ -33,6 +38,7 @@ exports.loginUser = async (req, res) => {
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
 
 
 
