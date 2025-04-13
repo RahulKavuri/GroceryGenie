@@ -13,7 +13,8 @@ const swaggerSpec = require("./swagger");
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json()); // ✅ This replaces bodyParser.json()
+
 
 // Mount Routes
 app.use("/api", userRoutes);
