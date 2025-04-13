@@ -1,36 +1,38 @@
 const User = require("../models/userModel");
 
 
-exports.loginUser = async (req, res) => {
-  const { email, password } = req.body;
+const { User } = require('../models');
 
-  if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password required' });
-  }
+const loginUser = async (req, res) => {
+    const { email, password } = req.body;
 
-  try {
-      const user = await User.findOne({ where: { email } });
-      if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-      }
+    try {
+        const user = await User.findOne({ where: { email } });
 
-      const validPassword = await bcrypt.compare(password, user.password);
-      if (!validPassword) {
-          return res.status(401).json({ message: 'Invalid password' });
-      }
+        if (!user) {
+            return res.status(401).json({ success: false, message: 'Invalid email' });
+        }
 
-      res.status(200).json({
-          message: 'Login successful',
-          user: {
-              id: user.id,
-              name: user.name,
-              email: user.email
-          }
-      });
-  } catch (err) {
-      res.status(500).json({ message: 'Server error', error: err.message });
-  }
+        if (user.password !== password) {
+            return res.status(401).json({ success: false, message: 'Invalid password' });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'Login successful',
+            user: {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({ success: false, message: 'Server error' });
+    }
 };
+
+module.exports = { loginUser };
+
 
 
 exports.createUser = async (req, res) => {
