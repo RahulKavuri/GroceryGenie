@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 
-const loginUser = async (req, res) => {
+exports.loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -27,9 +27,6 @@ const loginUser = async (req, res) => {
         return res.status(500).json({ success: false, message: 'Server error' });
     }
 };
-
-module.exports = { loginUser };
-
 
 
 exports.createUser = async (req, res) => {
