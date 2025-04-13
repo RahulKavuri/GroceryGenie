@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const sequelize = require("./config/database");
 const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
 // Swagger
 const swaggerUi = require("swagger-ui-express");
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 
 // Mount Routes
 app.use("/api", userRoutes);
+
+app.use("/api", productRoutes);
 
 // ✅ Swagger Docs route
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));

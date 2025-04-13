@@ -120,4 +120,6 @@ router.put("/users/:email", userController.updateUser);
  */
 router.delete("/users/:email", userController.deleteUserByEmail);
 
+router.post('/login', userController.loginUser);
+
 module.exports = router;
