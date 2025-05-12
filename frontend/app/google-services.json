@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "818650491033",
+    "project_id": "grocery-genie-6a646",
+    "storage_bucket": "grocery-genie-6a646.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818650491033:android:319a3b93c3cf09ae247008",
+        "android_client_info": {
+          "package_name": "com.klu.grocerygenie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdHtsSR1Ki4xXBg-660NFYP5vP5cQsaZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

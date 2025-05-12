@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF"
+    android:gravity="center"> <!-- This centers content vertically and horizontally -->
+
+    <!-- Total Amount -->
+    <TextView
+        android:id="@+id/totalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOTAL"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/totalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹3,600"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp"/>
+
+    <!-- Payment Options -->
+    <RadioGroup
+        android:id="@+id/paymentOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/cashondeliveryOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cash On Delivery"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:textSize="16sp" />
+        <RadioButton
+            android:id="@+id/visaOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Debit/Credit cart"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:textSize="16sp" />
+        <RadioButton
+            android:id="@+id/upiOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="UPI"
+            android:padding="12dp"
+            android:drawablePadding="10dp"
+            android:textSize="16sp" />
+
+    </RadioGroup>
+
+    <!-- Order Now Button -->
+    <Button
+        android:id="@+id/payNowButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Now"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:padding="14dp" />
+
+    <!-- Add new card -->
+    <TextView
+        android:id="@+id/addNewCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+ Add new card"
+        android:textColor="#6200EE"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="16sp"/>
+</LinearLayout>
